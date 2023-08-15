@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        #topology .network-name{
+            font-weight: bold;
+            font-size: 13px;
+            fill: #fff;
+            text-anchor: middle;
+        }
+        #topology .dot{
+            fill: #fff;
+            stroke: #333;
+            stroke-width: 3;
+        }
+        #topology .icon polygon{
+            fill: #333;
+        }
+    </style>
+    <script src="./d3.v6.min.js"></script>
+    <script src="./randomcolor.js"></script>
+</head>
+<body>
+    <svg id="topology"></svg>
+    <script>
+        // 间隔
+        var smallCap = 50;
+        var largeCap = 100;
+        // svg宽
+        var svgWidth = 0;
+        // 矩形宽确定
+        var rectWidth = 15;
+        // 矩形高确定
+        var rectHeight = 0;
+        // 图标宽高
+        var iconWidth = iconHeight = 20;
+        var smallLineWidth = 1;
+        var largeLineWidth = 3;
+        var nodes = [];
+        var edges = [];
+        var colorArr = []
+        const svg = d3.select("#topology")
+        var drawSvg = function(rect_height,svg_width){
+            svg.attr("width",svg_width)
+               .attr("height",rect_height+10)
+               .style('shape-rendering','crispEdges') //加上这句防止line的颜色会跟着width变小而变浅，但又会使图形边缘不流畅(临时解决方案)
+        }
+        var drawRectGroup = function(rect_nodes, rect_height, port_nodes){
+            // 分组
+            // 第一层：仅次于svg的组，每个纵向节点及与它最早连接的方形节点(及方形节点上的所有连线)为一组
+            let g = svg.selectAll("g")
+                .data(rect_nodes)
+                .enter()
+                .append("g")
+                .attr("id",(d, i) => 'n'+d.id)
+                .attr("class", "network")
+                .attr("transform", (d, i) => `translate(${i * largeCap}, 5)`)
+            // 第二层为纵向节点及它的文字为一组，方形节点及方形节点上的所有连线为另一组
+            let gc = g.append("g")
+                .attr("class","network_container")
+            // 纵向节点
+            gc.append("rect")
+                .attr("class", "network_rect")
+                .attr("width",rectWidth)
+                .attr("height",rect_height)
+                .attr("rx", 7)
+                .attr("ry", 7)
+                .attr("fill",(d)=>{colorArr[d.id] = randomColor();return colorArr[d.id]})
+            // 纵向节点的文字
+            gc.append("text")
+                .attr("class", "network-name")
+                .attr("transform", "rotate(90 0 0)")
+                .attr("x", rect_height / 2 + 10)
+                .attr("y", -4)
+                .text((d, i) => d.label)
+            // 方形节点和它的连线(设备)处理
+            port_nodes.forEach((pitem,pindex)=>{
+                // 记录每个设备连线总数
+                pitem.toPortCount = 0;
+                // 记录每个设备左向连线数
+                pitem.toPortLeftCount = 0;
+                // 记录每个设备右向连线数
+                pitem.toPortRightCount = 0;
+                edges.forEach((item,index)=>{
+                    if(pitem.id == item.toId){
+                        // 每次全部edges的循环完成即完成计算每个设备的连线总数
+                        pitem.toPortCount++;
+                        // 只保留设备第一次出现的网络位置
+                        if(!pitem.first){
+                            pitem.firstfromId = item.fromId;
+                            pitem.first = true;
+                            // 画设备整体
+                            let gd = d3.select("#n"+item.fromId)
+                            .append("g")
+                            .attr("id", 'n'+pitem.id)
+                            .attr("class","device")
+                            .attr("transform", `translate(${rectWidth + (largeCap - rectWidth - iconWidth) / 2 }, ${(pindex + 1) * smallCap})`)
+                            // 画设备上的连线
+                            let gp = gd.append("g")
+                            .attr("class","ports")
+                            // 画方形节点
+                            gd.append("rect")
+                            .attr("class","dot")
+                            .attr("width",iconWidth)
+                            .attr("height",iconHeight)
+                            .attr("rx", 3)
+                            .attr("ry", 3)
+                            // 导入不起作用
+                            // d3.svg("./route.svg").then((res)=>{
+                            //     gd.node().append(res.documentElement)
+                            // })
+                            // 画方形节点的图标
+                            let gi = gd.append("g")
+                            .attr("class","icon")
+                            // 方形节点又分为两种类型，图标不一样
+                            if(pitem.type == 'net-route'){
+                                gi.attr("transform","translate(3.5,3)")
+                                gi.append("polygon")
+                                .attr("points","12.51,4.23 12.51,0.49 8.77,0.49 9.68,1.4 6.92,4.16 8.84,6.08 11.6,3.3")
+                                gi.append("polygon")
+                                .attr("points","0.49,8.77 0.49,12.51 4.23,12.51 3.32,11.6 6.08,8.83 4.17,6.92 1.4,9.6")
+                                gi.append("polygon")
+                                .attr("points","1.85,5.59 5.59,5.59 5.59,1.85 4.68,2.76 1.92,0 0,1.92 2.76,4.68")
+                                gi.append("polygon")
+                                .attr("points","11.15,7.41 7.41,7.41 7.41,11.15 8.32,10.24 11.08,13 13,11.08 10.24,8.32")
+                            }else{
+                                gi.attr("transform","translate(5,3)")
+                                gi.append("rect")
+                                .attr("class","instance_bg")
+                                .attr("width",10)
+                                .attr("height",13)
+                                gi.append("rect")
+                                .attr("x",2)
+                                .attr("y",1)
+                                .attr("fill","#fff")
+                                .attr("width",6)
+                                .attr("height",2)
+                                gi.append("rect")
+                                .attr("x",2)
+                                .attr("y",4)
+                                .attr("fill","#fff")
+                                .attr("width",6)
+                                .attr("height",2)
+                                // 状态，此版本无
+                                // gi.append("circle")
+                                // .attr("class","active")
+                                // .attr("cx",3)
+                                // .attr("cy",10)
+                                // .attr("r",1.3)
+                            }   
+                        }
+                        let portTrans = item.fromId - pitem.firstfromId == 0 ? 0 : 20;
+                        if(portTrans == 0){
+                            pitem.toPortLeftCount++;
+                            item.LeftCount = pitem.toPortLeftCount;
+                        }else{
+                            pitem.toPortRightCount++;
+                            item.rightCount = pitem.toPortRightCount;
+                        }
+                        // 画连线，先在外面加一层g，这样所有连线的移动位置可以统一的计算(在后面)，line只需考虑长度宽度等
+                        d3.select("#n"+pitem.id)
+                            .select("g")
+                            .append("g")
+                            .attr("id","p" + item.fromId + "to" + item.toId+index)
+                            .attr("class","port")
+                            .append("line")
+                            .attr("class","port_line")
+                            .attr('x1',0)
+                            .attr('y1',0)
+                            .attr('x2',(item.fromId - pitem.firstfromId) * largeCap - ((largeCap - rectWidth - iconWidth) / 2 + portTrans))
+                            .attr('y2',0)
+                            .attr("stroke", colorArr[item.fromId])
+                    }
+                })
+                // 有的方形节点没有连线，将它依旧按顺序放在第一组网络中游离
+                if(pitem.toPortCount == 0){
+                    let gd = d3.select(".network")
+                    .append("g")
+                    .attr("id", 'n'+pitem.id)
+                    .attr("class","device")
+                    .attr("transform", `translate(${rectWidth + (largeCap - rectWidth - iconWidth) / 2 }, ${(pindex + 1) * smallCap})`)
+                    gd.append("rect")
+                    .attr("class","dot")
+                    .attr("width",iconWidth)
+                    .attr("height",iconHeight)
+                    .attr("rx", 3)
+                    .attr("ry", 3)
+                    let gi = gd.append("g")
+                            .attr("transform","translate(3.5,3)")
+                            .attr("class","icon")
+                    if(pitem.type == 'net-route'){
+                        gi.attr("transform","translate(3.5,3)")
+                        gi.append("polygon")
+                        .attr("points","12.51,4.23 12.51,0.49 8.77,0.49 9.68,1.4 6.92,4.16 8.84,6.08 11.6,3.3")
+                        gi.append("polygon")
+                        .attr("points","0.49,8.77 0.49,12.51 4.23,12.51 3.32,11.6 6.08,8.83 4.17,6.92 1.4,9.6")
+                        gi.append("polygon")
+                        .attr("points","1.85,5.59 5.59,5.59 5.59,1.85 4.68,2.76 1.92,0 0,1.92 2.76,4.68")
+                        gi.append("polygon")
+                        .attr("points","11.15,7.41 7.41,7.41 7.41,11.15 8.32,10.24 11.08,13 13,11.08 10.24,8.32")
+                    }else{
+                        gi.attr("transform","translate(5,3)")
+                        gi.append("rect")
+                        .attr("class","instance_bg")
+                        .attr("width",10)
+                        .attr("height",13)
+                        gi.append("rect")
+                        .attr("x",2)
+                        .attr("y",1)
+                        .attr("fill","#fff")
+                        .attr("width",6)
+                        .attr("height",2)
+                        gi.append("rect")
+                        .attr("x",2)
+                        .attr("y",4)
+                        .attr("fill","#fff")
+                        .attr("width",6)
+                        .attr("height",2)
+                        // 状态，此版本无
+                        // gi.append("circle")
+                        // .attr("class","active")
+                        // .attr("cx",3)
+                        // .attr("cy",10)
+                        // .attr("r",1.3)
+                    }
+                }else{
+                    /* 
+                        这个else又循环了一次edges，这是由于连线的宽度要根据当前设备全部连线数量决定，
+                        只有第一次的edges循环完成才能得到这个宽度
+                     */
+                    let maxPortCount = Math.max(pitem.toPortLeftCount,pitem.toPortRightCount)
+                    d3.select("#n"+pitem.id).selectAll("line")
+                    .attr("stroke-width", Math.ceil(3 / maxPortCount))
+                    // 位移连线的g
+                    edges.forEach((item,index)=>{
+                        if(pitem.id == item.toId){
+                            let portTrans = item.fromId - pitem.firstfromId == 0 ? 0 : 20;
+                            if(portTrans == 0){
+                                d3.select("#p" + item.fromId + "to" + item.toId+index)
+                                .attr("transform",`translate(${portTrans},${(iconHeight / (pitem.toPortLeftCount + 1)) * item.LeftCount})`)
+                            }else{
+                                d3.select("#p" + item.fromId + "to" + item.toId+index)
+                                .attr("transform",`translate(${portTrans},${(iconHeight / (pitem.toPortRightCount + 1)) * item.rightCount})`)
+                            }
+                        }         
+                    })
+                }
+            })
+        };
+
+        d3.json("./network.json").then((res)=>{
+            nodes = res.nodes;
+            edges = res.edges.sort((a,b)=>{
+                if(a.toId == b.toId)
+                return a.fromId - b.fromId;
+            });
+            console.log("edges",edges)
+            // 计算整体高度使用
+            let nodesnum = 0;
+            // 计算整体看度使用，可以不规定宽度
+            let rectsnum = 0;
+            // 区分纵向(网络)节点和方形(设备)节点
+            let rectnodes = [];
+            let portnodes = [];
+            nodes.forEach((item,index)=>{
+                if(item.type == "net-route" || item.type == "net-server"){
+                    nodesnum++;
+                    item.item = false;
+                    portnodes.push(item)
+                }
+                if(item.type == "net-work"){
+                    rectnodes.push(item)
+                    rectsnum++;
+                }
+                if(index >= nodes.length - 1){
+                    rectHeight = (nodesnum + 1) * 50;
+                    svgWidth = rectsnum*100;
+                    // 画整个svg
+                    drawSvg(rectHeight,svgWidth)
+                    // 画内容
+                    drawRectGroup(rectnodes, rectHeight, portnodes)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

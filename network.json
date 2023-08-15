@@ -1,0 +1,1008 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "type": "net-work",
+            "label": "Network-3"
+        },
+        {
+            "id": 2,
+            "type": "net-work",
+            "label": "Network-192"
+        },
+        {
+            "id": 3,
+            "type": "net-work",
+            "label": "provider"
+        },
+        {
+            "id": 4,
+            "type": "net-work",
+            "label": "Network-1"
+        },
+        {
+            "id": 5,
+            "type": "net-work",
+            "label": "Network-172"
+        },
+        {
+            "id": 6,
+            "type": "net-work",
+            "label": "Network-10"
+        },
+        {
+            "id": 7,
+            "type": "net-work",
+            "label": "sriov-net"
+        },
+        {
+            "id": 8,
+            "type": "net-route",
+            "label": "123"
+        },
+        {
+            "id": 9,
+            "type": "net-route",
+            "label": "test"
+        },
+        {
+            "id": 10,
+            "type": "net-route",
+            "label": "router"
+        },
+        {
+            "id": 11,
+            "type": "net-route",
+            "label": "wkt-router"
+        },
+        {
+            "id": 12,
+            "type": "net-route",
+            "label": "ceshiluyou"
+        },
+        {
+            "id": 13,
+            "type": "net-server",
+            "label": "lijin-1060e-arm-test2"
+        },
+        {
+            "id": 14,
+            "type": "net-server",
+            "label": "ren_v1.2_test2"
+        },
+        {
+            "id": 15,
+            "type": "net-server",
+            "label": "lijin-x86-a"
+        },
+        {
+            "id": 16,
+            "type": "net-server",
+            "label": "uos-0520-3"
+        },
+        {
+            "id": 17,
+            "type": "net-server",
+            "label": "test-only"
+        },
+        {
+            "id": 18,
+            "type": "net-server",
+            "label": "ren_ustack_mariadb"
+        },
+        {
+            "id": 19,
+            "type": "net-server",
+            "label": "test-0523"
+        },
+        {
+            "id": 20,
+            "type": "net-server",
+            "label": "ren_controller3"
+        },
+        {
+            "id": 21,
+            "type": "net-server",
+            "label": "sxg_kpatch_x86"
+        },
+        {
+            "id": 22,
+            "type": "net-server",
+            "label": "wkt-test-ustack-2"
+        },
+        {
+            "id": 23,
+            "type": "net-server",
+            "label": "zhguo-uswift-qcow2-amd-readonly-1"
+        },
+        {
+            "id": 24,
+            "type": "net-server",
+            "label": "wj-test"
+        },
+        {
+            "id": 25,
+            "type": "net-server",
+            "label": "wkt-test-dvr-3"
+        },
+        {
+            "id": 26,
+            "type": "net-server",
+            "label": "ljtian-pc"
+        },
+        {
+            "id": 27,
+            "type": "net-server",
+            "label": "mahmut"
+        },
+        {
+            "id": 28,
+            "type": "net-server",
+            "label": "ren_v1.2_test3"
+        },
+        {
+            "id": 29,
+            "type": "net-server",
+            "label": "ren_controller2"
+        },
+        {
+            "id": 30,
+            "type": "net-server",
+            "label": "wj-1060a-controller"
+        },
+        {
+            "id": 31,
+            "type": "net-server",
+            "label": "sxg-rabbitmq-single"
+        },
+        {
+            "id": 33,
+            "type": "net-server",
+            "label": "hgy-openEuler-Y"
+        },
+        {
+            "id": 34,
+            "type": "net-server",
+            "label": "sxg_rabbitmq"
+        },
+        {
+            "id": 35,
+            "type": "net-server",
+            "label": "hgy-ironic"
+        },
+        {
+            "id": 36,
+            "type": "net-server",
+            "label": "wkt-test-ustack-3"
+        },
+        {
+            "id": 37,
+            "type": "net-server",
+            "label": "sxg_rabbitmq-1"
+        },
+        {
+            "id": 38,
+            "type": "net-server",
+            "label": "hgy-ceph-1-2"
+        },
+        {
+            "id": 39,
+            "type": "net-server",
+            "label": "wyp-beego"
+        },
+        {
+            "id": 40,
+            "type": "net-server",
+            "label": "ren_kolla_build_arm_v"
+        },
+        {
+            "id": 41,
+            "type": "net-server",
+            "label": "hgy-test-cpu_model"
+        },
+        {
+            "id": 42,
+            "type": "net-server",
+            "label": "wkt"
+        },
+        {
+            "id": 43,
+            "type": "net-server",
+            "label": "ren_kolla_ansible_arm_test1"
+        },
+        {
+            "id": 44,
+            "type": "net-server",
+            "label": "ren_kolla_build_test1"
+        },
+        {
+            "id": 45,
+            "type": "net-server",
+            "label": "lijin-openeuler-aarch-test"
+        },
+        {
+            "id": 46,
+            "type": "net-server",
+            "label": "ren_kolla_build_v"
+        },
+        {
+            "id": 47,
+            "type": "net-server",
+            "label": "uos-0520-2"
+        },
+        {
+            "id": 48,
+            "type": "net-server",
+            "label": "wyp-env-base"
+        },
+        {
+            "id": 49,
+            "type": "net-server",
+            "label": "Ustack-db"
+        },
+        {
+            "id": 50,
+            "type": "net-server",
+            "label": "wkt-test-ustack-1"
+        },
+        {
+            "id": 51,
+            "type": "net-server",
+            "label": "ren_kolla_ansible_v_test2_compute"
+        },
+        {
+            "id": 52,
+            "type": "net-server",
+            "label": "yxl-openEuler-A"
+        },
+        {
+            "id": 53,
+            "type": "net-server",
+            "label": "java-web"
+        },
+        {
+            "id": 54,
+            "type": "net-server",
+            "label": "ren_kolla_build_train"
+        },
+        {
+            "id": 55,
+            "type": "net-server",
+            "label": "hgy-1050a-kolla-ansible"
+        },
+        {
+            "id": 56,
+            "type": "net-server",
+            "label": "uos-0520-1"
+        },
+        {
+            "id": 57,
+            "type": "net-server",
+            "label": "mahmut-uccps"
+        },
+        {
+            "id": 58,
+            "type": "net-server",
+            "label": "wkt-test-111"
+        },
+        {
+            "id": 60,
+            "type": "net-server",
+            "label": "kolla_build_image_v"
+        },
+        {
+            "id": 61,
+            "type": "net-server",
+            "label": "hgy-openeuler-rpm"
+        },
+        {
+            "id": 62,
+            "type": "net-server",
+            "label": "wkt-test-dvr-1"
+        },
+        {
+            "id": 63,
+            "type": "net-server",
+            "label": "ren_controller1"
+        },
+        {
+            "id": 64,
+            "type": "net-server",
+            "label": "zhguo-amd64-1050a-1"
+        },
+        {
+            "id": 65,
+            "type": "net-server",
+            "label": "wj-1060a-arm-compute1"
+        },
+        {
+            "id": 66,
+            "type": "net-server",
+            "label": "ren_kolla_ansible_v_test2"
+        },
+        {
+            "id": 67,
+            "type": "net-server",
+            "label": "yxl-pro-hlj-1"
+        },
+        {
+            "id": 68,
+            "type": "net-server",
+            "label": "ren_v1.2_test1"
+        },
+        {
+            "id": 69,
+            "type": "net-server",
+            "label": "wj-1060a-arm-compute2"
+        },
+        {
+            "id": 70,
+            "type": "net-server",
+            "label": "yxl-ceph-1627"
+        },
+        {
+            "id": 71,
+            "type": "net-server",
+            "label": "hgy-ceph01"
+        },
+        {
+            "id": 72,
+            "type": "net-server",
+            "label": "hgy-for-lxw-6"
+        },
+        {
+            "id": 73,
+            "type": "net-server",
+            "label": "lijin-arm-imporant"
+        },
+        {
+            "id": 74,
+            "type": "net-server",
+            "label": "wj-1060a-arm-controller"
+        },
+        {
+            "id": 75,
+            "type": "net-server",
+            "label": "ljtian-pc-2"
+        },
+        {
+            "id": 76,
+            "type": "net-server",
+            "label": "yxl-openEuler-B"
+        },
+        {
+            "id": 77,
+            "type": "net-server",
+            "label": "zhguo-uswift-no-readonly"
+        },
+        {
+            "id": 78,
+            "type": "net-server",
+            "label": "Ustack-api"
+        },
+        {
+            "id": 79,
+            "type": "net-server",
+            "label": "季宗耀"
+        },
+        {
+            "id": 80,
+            "type": "net-server",
+            "label": "wkt-test-dvr-2"
+        }
+    ],
+    "edges": [
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 8,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 8,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 9,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 10,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 10,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 10,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 10,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 10,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 11,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 11,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 11,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 11,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 2,
+            "fromNodeType": "net-work",
+            "toId": 11,
+            "toNodeType": "net-route"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 13,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 14,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 14,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 15,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 16,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 17,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 18,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 18,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 19,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 20,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 20,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 21,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 22,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 22,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 23,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 24,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 25,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 25,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 26,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 27,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 28,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 28,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 29,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 29,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 30,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 30,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 31,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 33,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 34,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 35,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 36,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 36,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 37,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 38,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 39,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 40,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 40,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 41,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 42,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 42,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 43,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 43,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 44,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 44,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 45,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 46,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 47,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 48,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 49,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 50,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 50,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 51,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 51,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 52,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 53,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 54,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 54,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 55,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 56,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 57,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 58,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 60,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 60,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 61,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 62,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 62,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 63,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 63,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 64,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 65,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 66,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 66,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 67,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 67,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 68,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 1,
+            "fromNodeType": "net-work",
+            "toId": 68,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 69,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 70,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 71,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 72,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 73,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 74,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 75,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 6,
+            "fromNodeType": "net-work",
+            "toId": 76,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 77,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 4,
+            "fromNodeType": "net-work",
+            "toId": 78,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 79,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 5,
+            "fromNodeType": "net-work",
+            "toId": 80,
+            "toNodeType": "net-server"
+        },
+        {
+            "fromId": 3,
+            "fromNodeType": "net-work",
+            "toId": 80,
+            "toNodeType": "net-server"
+        }
+    ]
+}
