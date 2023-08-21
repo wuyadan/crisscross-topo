@@ -51,33 +51,43 @@
                .style('shape-rendering','crispEdges') //加上这句防止line的颜色会跟着width变小而变浅，但又会使图形边缘不流畅(临时解决方案)
         }
         var drawRectGroup = function(rect_nodes, rect_height, port_nodes){
-            // 分组
-            // 第一层：仅次于svg的组，每个纵向节点及与它最早连接的方形节点(及方形节点上的所有连线)为一组
-            let g = svg.selectAll("g")
-                .data(rect_nodes)
-                .enter()
-                .append("g")
-                .attr("id",(d, i) => 'n'+d.id)
-                .attr("class", "network")
-                .attr("transform", (d, i) => `translate(${i * largeCap}, 5)`)
-            // 第二层为纵向节点及它的文字为一组，方形节点及方形节点上的所有连线为另一组
-            let gc = g.append("g")
-                .attr("class","network_container")
-            // 纵向节点
-            gc.append("rect")
-                .attr("class", "network_rect")
-                .attr("width",rectWidth)
-                .attr("height",rect_height)
-                .attr("rx", 7)
-                .attr("ry", 7)
-                .attr("fill",(d)=>{colorArr[d.id] = randomColor();return colorArr[d.id]})
-            // 纵向节点的文字
-            gc.append("text")
-                .attr("class", "network-name")
-                .attr("transform", "rotate(90 0 0)")
-                .attr("x", rect_height / 2 + 10)
-                .attr("y", -4)
-                .text((d, i) => d.label)
+            // (无网络但有游离设备要单独处理，因为后面的画图都是依赖于网络的分组rect_nodes)
+            if(rect_nodes.length <= 0){
+                let g = svg
+                    .append("g")
+                    .attr("id", "n1")
+                    .attr("class", "network")
+                let gc = g.append("g")
+                    .attr("class","network_container")
+            }else{
+                // 分组
+                // 第一层：仅次于svg的组，每个纵向节点及与它最早连接的方形节点(及方形节点上的所有连线)为一组
+                let g = svg.selectAll("g")
+                    .data(rect_nodes)
+                    .enter()
+                    .append("g")
+                    .attr("id",(d, i) => 'n'+d.id)
+                    .attr("class", "network")
+                    .attr("transform", (d, i) => `translate(${i * largeCap}, 5)`)
+                // 第二层为纵向节点及它的文字为一组，方形节点及方形节点上的所有连线为另一组
+                let gc = g.append("g")
+                    .attr("class","network_container")
+                // 纵向节点
+                gc.append("rect")
+                    .attr("class", "network_rect")
+                    .attr("width",rectWidth)
+                    .attr("height",rect_height)
+                    .attr("rx", 7)
+                    .attr("ry", 7)
+                    .attr("fill",(d)=>{colorArr[d.id] = randomColor();return colorArr[d.id]})
+                // 纵向节点的文字
+                gc.append("text")
+                    .attr("class", "network-name")
+                    .attr("transform", "rotate(90 0 0)")
+                    .attr("x", rect_height / 2 + 10)
+                    .attr("y", -4)
+                    .text((d, i) => d.label)
+            }
             // 方形节点和它的连线(设备)处理
             port_nodes.forEach((pitem,pindex)=>{
                 // 记录每个设备连线总数
@@ -280,6 +290,13 @@
                 if(index >= nodes.length - 1){
                     rectHeight = (nodesnum + 1) * 50;
                     svgWidth = rectsnum*100;
+                    // ①只有网络没有设备时网络②有设备无网络，两种情况都需要高度和宽度
+                    if(rectHeight <= 250){
+                        rectHeight = 250;
+                    }
+                    if(svgWidth <= 100){
+                        svgWidth = 100;
+                    }
                     // 画整个svg
                     drawSvg(rectHeight,svgWidth)
                     // 画内容
